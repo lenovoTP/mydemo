@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+
+// required by POM
+version = "${rootProject.ext.releaseVersionName}"
+group = "com.tzutalin.dlib-android-app"
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '27.0.3'
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 25
+        versionCode 1
+        versionName "${rootProject.ext.releaseVersionName}"
+
+        ndk{
+            abiFilters 'arm64-v8a'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    android {
+        lintOptions {
+            abortOnError false
+        }
+    }
+
+    // Use prebilt *.so. Don't run ndk-build
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ["src/main/Libs"]
+        }
+    }
+
+}
+
+configurations {
+    javadocDeps
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api "com.android.support:appcompat-v7:${rootProject.ext.androidSupportSdkVersion}"
+    javadocDeps "com.android.support:appcompat-v7:${rootProject.ext.androidSupportSdkVersion}"
+    api "com.android.support:support-annotations:${rootProject.ext.androidSupportSdkVersion}"
+    javadocDeps "com.android.support:support-annotations:${rootProject.ext.androidSupportSdkVersion}"
+}
