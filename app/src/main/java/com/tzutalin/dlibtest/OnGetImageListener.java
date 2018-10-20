@@ -282,9 +282,12 @@ public class OnGetImageListener implements ImageReader.OnImageAvailableListener{
                                     break;
                                 case 1://smile
                                     animation = AnimationsContainer.getInstance(R.array.loading_anim_smile, 100).createProgressDialogAnim(mImageView);
+                                    //播放动画
+                                    animation.start();
                                     break;
                                 case 2://c
                                     animation = AnimationsContainer.getInstance(R.array.loading_anim, 100).createProgressDialogAnim(mImageView);
+                                    animation.start();
                                     break;
                                 case 3://angry
                                     break;
@@ -293,7 +296,7 @@ public class OnGetImageListener implements ImageReader.OnImageAvailableListener{
                                 case 5://shy
                                     break;
                             }
-                            animation.start();
+                            //animation.start();
                             //long endTime = System.currentTimeMillis();
                             //mTransparentTitleView.setText("Time cost: " + String.valueOf((endTime - startTime) / 1000f) + " sec");
                         }
