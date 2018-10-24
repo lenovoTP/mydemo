@@ -32,18 +32,20 @@
 
     <ImageView
         android:id="@+id/connect_img_main"
-        android:layout_width="600px"
-        android:layout_height="450px"
+        android:layout_width="216dp"
+        android:layout_height="145dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="123dp"
+        android:layout_marginTop="152dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginRight="72dp"
         android:background="@drawable/smile00" />
 
     <ImageView
         android:id="@+id/connect_main_bg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg"
-        />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg" />
         
 </RelativeLayout>

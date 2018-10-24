@@ -42,6 +42,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.xjl.mydemo.R;
+import com.example.xjl.mydemo.tools.AnimationsContainer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -64,6 +65,7 @@ public class CameraConnectionFragment extends Fragment{
     private static final int MINIMUM_PREVIEW_SIZE = 320;
     private static final String TAG = "CameraConnectionFragment";
     private ImageView mImageview;//动画播放的image
+    AnimationsContainer.FramesSequenceAnimation animation;
     private TrasparentTitleView mScoreView;
 
     /**
@@ -291,6 +293,10 @@ public class CameraConnectionFragment extends Fragment{
         textureView = (AutoFitTextureView) view.findViewById(R.id.texture);
         mScoreView = (TrasparentTitleView) view.findViewById(R.id.results);
         mImageview = (ImageView)view.findViewById(R.id.connect_img_main);
+        //循环播放
+        animation = AnimationsContainer.getInstance(R.array.loading_anim_smile, 100).createProgressDialogAnim(mImageview);
+        //播放动画
+        animation.start();
     }
 
     @Override

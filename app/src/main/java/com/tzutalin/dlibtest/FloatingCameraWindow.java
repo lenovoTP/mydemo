@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.xjl.mydemo.R;
+import com.example.xjl.mydemo.tools.AnimationsContainer;
 
 import java.lang.ref.WeakReference;
 

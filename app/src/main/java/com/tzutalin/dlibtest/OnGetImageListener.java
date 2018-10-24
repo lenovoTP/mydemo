@@ -270,6 +270,7 @@ public class OnGetImageListener implements ImageReader.OnImageAvailableListener{
                             FileUtils.copyFileFromRawToOthers(mContext, R.raw.shape_predictor_68_face_landmarks, Constants.getFaceShapeModelPath());
                         }
                         //人脸68个点识别
+                        //结果：result
                         if(mframeNum % 3 == 0){
                             long startTime = System.currentTimeMillis();
                             synchronized (OnGetImageListener.this) {
@@ -279,6 +280,7 @@ public class OnGetImageListener implements ImageReader.OnImageAvailableListener{
                             //TODO：判断结果并播放动画
                             switch (emotional){
                                 default:
+                                    //播放动画
                                     break;
                                 case 1://smile
                                     animation = AnimationsContainer.getInstance(R.array.loading_anim_smile, 100).createProgressDialogAnim(mImageView);
@@ -300,7 +302,6 @@ public class OnGetImageListener implements ImageReader.OnImageAvailableListener{
                             //long endTime = System.currentTimeMillis();
                             //mTransparentTitleView.setText("Time cost: " + String.valueOf((endTime - startTime) / 1000f) + " sec");
                         }
-
                         // Draw on bitmap
                         if (results.size() != 0) {
                             for (final VisionDetRet ret : results) {
